@@ -13,4 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'TaskController@index');
+Route::redirect('/', '/tasks');
+
+Route::get('/tasks', 'TaskController@index');
+Route::post('/tasks', 'TaskController@create');
+Route::get('/tasks/{id}/edit', 'TaskController@edit');
+Route::put('/tasks/{id}', 'TaskController@update');
+Route::delete('/tasks/{id}', 'TaskController@destroy');
