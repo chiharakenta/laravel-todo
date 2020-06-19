@@ -20,3 +20,9 @@ Route::post('/tasks', 'TaskController@create');
 Route::get('/tasks/{id}/edit', 'TaskController@edit');
 Route::put('/tasks/{id}', 'TaskController@update');
 Route::delete('/tasks/{id}', 'TaskController@destroy');
+
+Route::get('/categories', 'CategoryController@index');
+Route::post('/categories', 'CategoryController@create');
+Route::get('/categories/{id}/edit', 'CategoryController@edit');
+Route::put('/categories/{id}', 'CategoryController@update');
+Route::delete('/categories/{id}', 'CategoryController@destroy');
