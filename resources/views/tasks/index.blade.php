@@ -7,7 +7,7 @@
         <h1>タスク一覧</h1>
         <form action="/tasks" method="post">
             @csrf
-            <input type="text" name="content">
+            <input type="text" name="content">z
             <input type="submit" value="作成">
         </form>
         <ul>
