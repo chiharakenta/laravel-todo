@@ -5,6 +5,7 @@
 </head>
 <body>
 <h1>カテゴリー一覧</h1>
+<a href="/tasks">タスク一覧</a>
 <form action="/categories" method="post">
     @csrf
     <input type="text" name="name">

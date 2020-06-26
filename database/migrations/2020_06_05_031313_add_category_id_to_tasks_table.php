@@ -14,7 +14,10 @@ class AddCategoryIdToTasksTable extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->foreignId('category_id');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')
+                ->references('id')->on('categories')
+                ->onDelete('cascade');
         });
     }
 
