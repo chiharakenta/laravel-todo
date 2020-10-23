@@ -2,27 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Category;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $categories = Category::all();
+        $user = Auth::user();
         return view('categories/index', [
-            'categories' => $categories
+            'categories' => $user->categories
         ]);
     }
 
     public function create(Request $request)
     {
-
         $name = $request->input('name');
-        $category = new Category();
-        $category->name = $name;
-        $category->save();
+        Category::create(
+            ['name' => $name, 'user_id' => Auth::id()]
+        );
         return redirect('/categories');
     }
 
